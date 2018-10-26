@@ -4,7 +4,25 @@ Movie recommendation system
 
 # Type:
 
-classification, multi classes
+- Classification, multi classes
+
+- Non parametric
+
+Non-parametric means there is no assumption for underlying data distribution.
+In other words, the model structure determined from the dataset.
+This will be very helpful in practice where most of the real world datasets
+do not follow mathematical theoretical assumptions
+
+- Instance-based learning algorithm: our algorithm doesn’t explicitly learn a model.
+Instead, it chooses to memorize the training instances which are subsequently used as
+“knowledge” for the prediction phase.
+
+Only when a query to our database is made (i.e. when we ask it to predict a label given
+an input), will the algorithm use the training instances to spit out an answer
+
+The minimal training phase of KNN comes both at a memory cost, since we must store
+a potentially huge data set, as well as a computational cost during test time since
+classifying a given observation requires a run down of the whole data set
 
 # Algorithm summary:
 
@@ -16,7 +34,23 @@ this data point based on a majority vote
 From the list of those K data points, we look at the
 corresponding classes and pick the one with the highest number of votes
 
+K is the number of nearest neighbors
+
+K is generally an odd number if the number of classes is 2
+
 The value of K depends on the problem at hand
+
+# Basic steps:
+
+1. Calculate distance
+2. Find closest neighbors
+3. Vote for labels
+
+# Curse of Dimensionality
+
+KNN performs better with a lower number of features than a large number of features. You can say that when the number of features increases than it requires more data. Increase in dimension also leads to the problem of overfitting. To avoid overfitting, the needed data will need to grow exponentially as you increase the number of dimensions. This problem of higher dimension is known as the Curse of Dimensionality.
+
+To deal with the problem of the curse of dimensionality, you need to perform principal component analysis before applying any machine learning algorithm, or you can also use feature selection approach. Research has shown that in large dimension Euclidean distance is not useful anymore. Therefore, you can prefer other measures such as cosine similarity, which get decidedly less affected by high dimension.
 
 # Computing similarity scores
 
