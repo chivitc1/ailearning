@@ -2,3 +2,7 @@ numpy
 pandas
 sklearn
 matplotlib
+
+pydotplus
+graphviz
+pyparsing
